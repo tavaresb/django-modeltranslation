@@ -1095,9 +1095,10 @@ class ModelInheritanceFieldAggregationTest(ModeltranslationTestBase):
     """
     def test_field_aggregation(self):
         clsb = FieldInheritanceAbstractModelBTranslationOptions
-        self.failUnless('titlea' in clsb.fields)
-        self.failUnless('titleb' in clsb.fields)
+        self.assertEquals(clsb.fields, ['titlea', 'titleb'] )
 
+        clsc = FieldInheritanceAbstractModelCTranslationOptions
+        self.assertEquals(clsc.fields, ['titlea', 'titlec'] )
 
 class TranslationAdminTest(ModeltranslationTestBase):
     def setUp(self):
